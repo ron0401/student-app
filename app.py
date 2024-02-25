@@ -11,13 +11,13 @@ st.title('成績整理ちゃん')
 uploaded_file = st.file_uploader("ファイルをアップロードしてください", type='xlsx')
 
 if uploaded_file is not None:
-    excel_book = uploaded_file.name
     sheet1 = "表紙"
     sheet2 = "入力"
 
     cells = "B4:B8"
 
-    book = openpyxl.load_workbook(excel_book)
+    book = openpyxl.load_workbook(uploaded_file)
+
     sheet = book[sheet1]
     kyoka_list = []
     for row in sheet.iter_rows(min_row=4, max_row=20, min_col=2, max_col=2):
